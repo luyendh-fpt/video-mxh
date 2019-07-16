@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <servlet>
+        <servlet-name>VideoApi</servlet-name>
+        <servlet-class>mxh.api.VideoApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VideoApi</servlet-name>
+        <url-pattern>/api/v1/videos</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>JsonApiFilter</filter-name>
+        <filter-class>mxh.filter.JsonApiFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>JsonApiFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>ObjectifyRegisterFilter</filter-name>
+        <filter-class>mxh.filter.ObjectifyRegisterFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyRegisterFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>ObjectifyFilter</filter-name>
+        <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>
